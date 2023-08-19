@@ -1,4 +1,4 @@
-/* section 1 요소 생성 */
+/* section 1 요소 생성 - 개수 고민 중 */
 const magnetSp = document.querySelectorAll('.m-sp');
 
 function multiplyNode(node, count) {
@@ -87,43 +87,12 @@ section1.addEventListener('mouseleave', () => {
   }
 });
 
-/*--- section 2 카드 애니메이션 ---*/
+/*--- section 2 카드 크기 조절 ---*/
 const section2 = document.getElementById('section2');
-const cardboxWrap = document.querySelectorAll('.cardbox-wrap');
-const cardbox = document.querySelectorAll('.cardbox');
-const flipWrap = document.querySelectorAll('.flip-wrap');
-
-/* section 2 진입 후 트리거 */
-function section2handle() {
-  const rect = section2.getBoundingClientRect();
-
-  if (window.innerHeight / 2 > rect.top) {
-    window.removeEventListener('scroll', section2handle);
-    cardboxWrap.forEach((element, index) => {
-      setTimeout(() => {
-        element.style.animation = 'rotateAnimation 2s 1 forwards';
-      }, 2000 + index * 200);
-    });
-    for (let i = 0; cardbox[index]; i++) {
-      setTimeout(() => {
-        element.style.animation = 'moveToBottom 1s 1 forwards';
-      }, 4000 + (i / 3) * 200);
-    }
-    /*
-    cardbox.forEach((element, index) => {
-      for(let i = 0; cardbox[index]; i++)
-      setTimeout(() => {
-        element.style.animation = 'moveToBottom 1s 1 forwards';
-      }, 4000);
-    });*/
-  }
-}
-window.addEventListener('scroll', section2handle);
 
 function scaleSide() {
   const side = document.querySelectorAll('.cardbox-side');
   const back = document.querySelectorAll('.cardbox-back');
-  const front = document.querySelectorAll('.cardbox-front');
   const backWidth = back[0].offsetWidth;
   const backHeight = back[0].offsetHeight;
   side.forEach((element) => {
@@ -137,12 +106,10 @@ function scaleSide() {
   });
 }
 
-const container = document.getElementById('container');
 const observer = new ResizeObserver((entries) => {
   for (let entry of entries) {
     scaleSide();
   }
 });
 
-// ResizeObserver를 해당 요소에 연결
-observer.observe(container);
+observer.observe(section2);

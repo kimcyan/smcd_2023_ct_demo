@@ -81,18 +81,60 @@
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  animation: none;
-  transform: translateZ(-273px);
+  transform: translateZ(-273px) rotateY(0deg);
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: rotateAnimation 16s ease infinite forwards;
+}
+.c2 .cardbox-wrap {
+  animation-delay: 0.2s;
+}
+.c3 .cardbox-wrap {
+  animation-delay: 0.4s;
+}
+.c4 .cardbox-wrap {
+  animation-delay: 0.6s;
 }
 @keyframes rotateAnimation {
-  0% {
+  6.25% {
     transform: translateZ(-273px) rotateY(0deg);
   }
-  100% {
+  19.5% {
     transform: translateZ(-273px) rotateY(-180deg);
+  }
+  80% {
+    transform: translateZ(-273px) rotateY(-180deg);
+  }
+  100% {
+    transform: translateZ(-273px) rotateY(0deg);
+  }
+}
+
+.cardbox {
+  animation: moveToBottom 16s ease infinite forwards;
+}
+.c2 .cardbox {
+  animation-delay: 0.2s;
+}
+.c3 .cardbox {
+  animation-delay: 0.4s;
+}
+.c4 .cardbox {
+  animation-delay: 0.6s;
+}
+@keyframes moveToBottom {
+  25% {
+    margin-top: 0;
+  }
+  36.5% {
+    margin-top: 500%;
+  }
+  67.75% {
+    margin-top: 500%;
+  }
+  80.25% {
+    margin-top: 0;
   }
 }
 .spinImg,
@@ -107,14 +149,6 @@
 }
 .cardbox-front {
   transform: translateZ(0) rotateY(180deg);
-}
-@keyframes moveToBottom {
-  0% {
-    margin-top: 0;
-  }
-  100% {
-    margin-top: 500%;
-  }
 }
 .flip-wrap {
   width: 96%;
