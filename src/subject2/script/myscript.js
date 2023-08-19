@@ -1,4 +1,4 @@
-//https://stackoverflow.com/a/30268827
+/* section 1 요소 생성 */
 const magnetSp = document.querySelectorAll('.m-sp');
 
 function multiplyNode(node, count) {
@@ -34,6 +34,7 @@ for (let i = 3; i < 4; i++) {
   }
 }
 
+/* section 1 자기력 애니메이션 */
 const degDefault = [
   60, 90, 120, 0, 60, 90, 120, 45, 90, 135, 0, 45, 90, 135, 30, 90, 150, 0, 30,
   90, 150, 0, 0, 0, 0, 0, 0, 0,
@@ -53,11 +54,6 @@ function rotateDefault() {
       }deg)`;
     }
   }
-  /*
-  magnetInside.forEach((element) => {
-    element.style.transform = '';
-  });
-  */
 }
 
 function rotateTowardsMouse(event) {
@@ -90,3 +86,63 @@ section1.addEventListener('mouseleave', () => {
     rotateDefault();
   }
 });
+
+/*--- section 2 카드 애니메이션 ---*/
+const section2 = document.getElementById('section2');
+const cardboxWrap = document.querySelectorAll('.cardbox-wrap');
+const cardbox = document.querySelectorAll('.cardbox');
+const flipWrap = document.querySelectorAll('.flip-wrap');
+
+/* section 2 진입 후 트리거 */
+function section2handle() {
+  const rect = section2.getBoundingClientRect();
+
+  if (window.innerHeight / 2 > rect.top) {
+    window.removeEventListener('scroll', section2handle);
+    cardboxWrap.forEach((element, index) => {
+      setTimeout(() => {
+        element.style.animation = 'rotateAnimation 2s 1 forwards';
+      }, 2000 + index * 200);
+    });
+    for (let i = 0; cardbox[index]; i++) {
+      setTimeout(() => {
+        element.style.animation = 'moveToBottom 1s 1 forwards';
+      }, 4000 + (i / 3) * 200);
+    }
+    /*
+    cardbox.forEach((element, index) => {
+      for(let i = 0; cardbox[index]; i++)
+      setTimeout(() => {
+        element.style.animation = 'moveToBottom 1s 1 forwards';
+      }, 4000);
+    });*/
+  }
+}
+window.addEventListener('scroll', section2handle);
+
+function scaleSide() {
+  const side = document.querySelectorAll('.cardbox-side');
+  const back = document.querySelectorAll('.cardbox-back');
+  const front = document.querySelectorAll('.cardbox-front');
+  const backWidth = back[0].offsetWidth;
+  const backHeight = back[0].offsetHeight;
+  side.forEach((element) => {
+    element.style.height = `${backHeight + 1}px`;
+    element.style.transform = `translateZ(${
+      side[0].offsetWidth / 2
+    }px) translateX(${backWidth / 2}px) rotateY(90deg)`;
+  });
+  back.forEach((element) => {
+    element.style.transform = `translateZ(${side[0].offsetWidth}px) rotateY(0deg)`;
+  });
+}
+
+const container = document.getElementById('container');
+const observer = new ResizeObserver((entries) => {
+  for (let entry of entries) {
+    scaleSide();
+  }
+});
+
+// ResizeObserver를 해당 요소에 연결
+observer.observe(container);

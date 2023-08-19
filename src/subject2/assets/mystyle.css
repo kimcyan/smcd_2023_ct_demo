@@ -1,5 +1,5 @@
-.wrapper {
-  padding: 0 !important;
+.mywrapper {
+  padding: 0;
 }
 #section1 {
   background-color: white;
@@ -62,10 +62,70 @@
 .m-135 {
   transform: rotate(135deg);
 }
+
+#section2 {
+  background-color: #333;
+  aspect-ratio: 1440/769;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-inline: 1.5rem;
+  overflow: hidden;
+}
+.container {
+  width: 25%;
+  perspective: 1000px;
+}
+.cardbox-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: none;
+  transform: translateZ(-273px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes rotateAnimation {
+  0% {
+    transform: translateZ(-273px) rotateY(0deg);
+  }
+  100% {
+    transform: translateZ(-273px) rotateY(-180deg);
+  }
+}
+.spinImg,
+.flipImg {
+  position: absolute;
+}
+.cardbox-back {
+  transform: translateZ(26px) rotateY(0deg);
+}
+.cardbox-side {
+  transform: translateZ(13px) rotateY(90deg);
+}
+.cardbox-front {
+  transform: translateZ(0) rotateY(180deg);
+}
+@keyframes moveToBottom {
+  0% {
+    margin-top: 0;
+  }
+  100% {
+    margin-top: 500%;
+  }
+}
+.flip-wrap {
+  width: 96%;
+  height: auto;
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*효과 전용 class*/
 .invisible {
   opacity: 0;
-}
-#section2 {
-  background-color: black;
-  aspect-ratio: 1440/769;
 }
