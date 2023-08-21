@@ -2,15 +2,12 @@
   padding: 0;
 }
 #section1 {
-  background-color: white;
+  background-color: #f5f5f7;
   background-image: url('./typo_1_main_title.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   padding: 20px 32px;
   transition: 0.2s ease;
-}
-#section1:hover {
-  filter: invert(100%);
 }
 .magnet-wrap {
   display: flex;
@@ -31,7 +28,7 @@
   gap: 0.4vw;
 }
 .m-element {
-  background-color: #333333;
+  background-color: #161617;
   border-radius: 0.2vw;
   height: 0.4vw;
 }
@@ -64,12 +61,12 @@
 }
 
 #section2 {
-  background-color: #333;
+  background-color: #1d1d1f;
   aspect-ratio: 1440/769;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-inline: 1.5rem;
+  padding-inline: 5rem;
   overflow: hidden;
 }
 .container {
@@ -85,25 +82,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: rotateAnimation 16s ease infinite forwards;
-}
-.c2 .cardbox-wrap {
-  animation-delay: 0.2s;
-}
-.c3 .cardbox-wrap {
-  animation-delay: 0.4s;
-}
-.c4 .cardbox-wrap {
-  animation-delay: 0.6s;
+  animation: rotateAnimation 10s ease infinite forwards;
 }
 @keyframes rotateAnimation {
-  6.25% {
+  2% {
     transform: translateZ(-273px) rotateY(0deg);
   }
-  19.5% {
+  16% {
     transform: translateZ(-273px) rotateY(-180deg);
   }
-  80% {
+  86% {
     transform: translateZ(-273px) rotateY(-180deg);
   }
   100% {
@@ -112,28 +100,19 @@
 }
 
 .cardbox {
-  animation: moveToBottom 16s ease infinite forwards;
-}
-.c2 .cardbox {
-  animation-delay: 0.2s;
-}
-.c3 .cardbox {
-  animation-delay: 0.4s;
-}
-.c4 .cardbox {
-  animation-delay: 0.6s;
+  animation: moveToBottom 10s ease infinite forwards;
 }
 @keyframes moveToBottom {
-  25% {
+  18% {
     margin-top: 0;
   }
-  36.5% {
+  32% {
     margin-top: 500%;
   }
-  67.75% {
+  70% {
     margin-top: 500%;
   }
-  80.25% {
+  84% {
     margin-top: 0;
   }
 }
@@ -157,8 +136,149 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  animation: rotateCard 10s ease infinite forwards;
+}
+@keyframes rotateCard {
+  32% {
+    transform: rotateY(0deg);
+  }
+  42% {
+    transform: rotateY(180deg);
+  }
+  60% {
+    transform: rotateY(180deg);
+  }
+  70% {
+    transform: rotateY(0deg);
+  }
+}
+.card-front,
+.card-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card-back {
+  transform: rotateY(180deg);
 }
 
+/*애니메이션 딜레이*/
+.c2 .cardbox-wrap,
+.c2 .flip-wrap,
+.c2 .cardbox {
+  animation-delay: 0.2s;
+}
+.c3 .cardbox-wrap,
+.c3 .flip-wrap,
+.c3 .cardbox {
+  animation-delay: 0.4s;
+}
+.c4 .cardbox-wrap,
+.c4 .flip-wrap,
+.c4 .cardbox {
+  animation-delay: 0.6s;
+}
+
+#section6 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440/769;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.s6back {
+  position: absolute;
+  z-index: -1;
+}
+.m-animation-wrap {
+  max-width: 50%;
+  padding: 10% 16% 10% 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.m-s6 {
+  position: absolute;
+}
+.m-bg {
+  animation: opacityMBg 4s ease infinite;
+}
+.m-s6 .m-45 {
+  transform: rotate(0deg);
+  animation: rotateM45 4s ease infinite;
+}
+.m-s6 .m-90 {
+  transform: rotate(0deg);
+  animation: rotateM90 4s ease infinite;
+}
+.m-s6 .m-135 {
+  transform: rotate(0deg);
+  animation: rotateM135 4s ease infinite;
+}
+@keyframes rotateM45 {
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(45deg);
+  }
+  70% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes rotateM90 {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(90deg);
+  }
+  70% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes rotateM135 {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(90deg);
+  }
+  30% {
+    transform: rotate(135deg);
+  }
+  70% {
+    transform: rotate(135deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes opacityMBg {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 /*효과 전용 class*/
 .invisible {
   opacity: 0;

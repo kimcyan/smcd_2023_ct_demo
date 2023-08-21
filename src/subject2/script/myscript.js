@@ -8,7 +8,7 @@ function multiplyNode(node, count) {
   }
 }
 
-multiplyNode(document.querySelector('.m-inside'), 7);
+multiplyNode(document.querySelector('.m-inside'), 11);
 multiplyNode(document.querySelector('.tr-repeat'), 7);
 
 function insertSp(input, place) {
@@ -29,15 +29,16 @@ for (let i = 0; magnetTrs[i]; i++) {
 const magnetInside = document.querySelectorAll('.m-inside');
 
 for (let i = 3; i < 4; i++) {
-  for (let j = 1; j < 6; j++) {
-    magnetInside[i * 7 + j].classList.add('invisible');
+  for (let j = 2; j < 9; j++) {
+    magnetInside[i * 11 + j].classList.add('invisible');
   }
 }
 
 /* section 1 자기력 애니메이션 */
 const degDefault = [
-  60, 90, 120, 0, 60, 90, 120, 45, 90, 135, 0, 45, 90, 135, 30, 90, 150, 0, 30,
-  90, 150, 0, 0, 0, 0, 0, 0, 0,
+  54, 72, 90, 108, 126, 0, 54, 72, 90, 108, 126, 42, 57, 90, 123, 138, 0, 42,
+  57, 90, 123, 138, 27, 40, 90, 140, 153, 0, 27, 40, 90, 140, 153, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0,
 ];
 
 const section1 = document.querySelector('#section1');
@@ -45,17 +46,17 @@ let isMouseMoveListenerActive = false;
 
 function rotateDefault() {
   for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 7; j++) {
-      magnetInside[i * 7 + j].style.transform = `rotate(${
-        degDefault[i * 7 + j]
+    for (let j = 0; j < 11; j++) {
+      magnetInside[i * 11 + j].style.transform = `rotate(${
+        degDefault[i * 11 + j]
       }deg)`;
-      magnetInside[(6 - i) * 7 + (6 - j)].style.transform = `rotate(${
-        degDefault[i * 7 + j]
+      magnetInside[(6 - i) * 11 + (10 - j)].style.transform = `rotate(${
+        degDefault[i * 11 + j]
       }deg)`;
     }
   }
 }
-
+rotateDefault();
 function rotateTowardsMouse(event) {
   magnetInside.forEach((insideElement) => {
     const insideRect = insideElement.getBoundingClientRect();
