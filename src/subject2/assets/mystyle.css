@@ -61,13 +61,14 @@
   transform: rotate(135deg);
 }
 /* 카드 뒤집기 */
-#section2, #section7 {
-  background-color: #4D4E51;
+#section2,
+#section7 {
+  background-color: #4d4e51;
   aspect-ratio: 1440/769;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-inline: 5rem;
+  padding-inline: 4vw;
   overflow: hidden;
   align-items: center;
 }
@@ -94,10 +95,12 @@
 #section2 .flip-wrap {
   width: 90%;
 }
-#section2 .c1 .flip-wrap, #section2 .c3 .flip-wrap {
+#section2 .c1 .flip-wrap,
+#section2 .c3 .flip-wrap {
   animation: rotateCard1 8s ease infinite forwards;
 }
-#section2 .c2 .flip-wrap, #section2 .c4 .flip-wrap {
+#section2 .c2 .flip-wrap,
+#section2 .c4 .flip-wrap {
   transform: rotateY(180deg);
   animation: rotateCard2 8s ease infinite forwards;
 }
@@ -137,15 +140,6 @@
 .card-back {
   transform: rotateY(180deg);
 }
-
-#section6 {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1440/769;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
 /* 카드 박스 */
 .cardbox-back {
   transform: translateZ(26px) rotateY(0deg);
@@ -166,11 +160,13 @@
   align-items: center;
   justify-content: center;
 }
-.c1 .cardbox-wrap, .c3 .cardbox-wrap {
+.c1 .cardbox-wrap,
+.c3 .cardbox-wrap {
   transform: translateZ(-273px) rotateY(-180deg);
   animation: rotateAnimation1 8s ease infinite forwards;
 }
-.c2 .cardbox-wrap, .c4 .cardbox-wrap {
+.c2 .cardbox-wrap,
+.c4 .cardbox-wrap {
   animation: rotateAnimation2 8s ease infinite forwards;
 }
 @keyframes rotateAnimation1 {
@@ -216,6 +212,30 @@
 .c4 .flip-wrap,
 .c4 .cardbox {
   animation-delay: 0.4s !important;
+}
+.s7-img {
+  position: absolute;
+  padding-bottom: 40%;
+}
+#section6 {
+  padding-inline: 4vw;
+  display: inline-block;
+  background-color: #1d1d1f;
+}
+.s6-img {
+  padding-top: 6vw;
+}
+.achive-wrap {
+  display: flex;
+  aspect-ratio: 1280/500;
+  margin-block: 12vw;
+}
+.achive-card,
+.achive-text {
+  flex: 1 0 0;
+}
+.achive-card img {
+  height: 100%;
 }
 /*효과 전용 class*/
 .invisible {

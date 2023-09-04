@@ -89,22 +89,22 @@ section1.addEventListener('mouseleave', () => {
 });
 
 /*--- section 2 카드 크기 조절 ---*/
-const section2 = document.getElementById('section2');
+const section7 = document.getElementById('section7');
 
 function scaleSide() {
   const side = document.querySelectorAll('.cardbox-side');
   const back = document.querySelectorAll('.cardbox-back');
   const backWidth = back[0].offsetWidth;
   const backHeight = back[0].offsetHeight;
-  for(let i = 0; side[i];i+=2){
+  for (let i = 0; side[i]; i += 2) {
     side[i].style.height = `${backHeight + 1}px`;
-    side[i+1].style.height = `${backHeight + 1}px`;
+    side[i + 1].style.height = `${backHeight + 1}px`;
     side[i].style.transform = `translateZ(${
       side[0].offsetWidth / 2
     }px) translateX(${backWidth / 2}px) rotateY(90deg)`;
-    side[i+1].style.transform = `translateZ(${
+    side[i + 1].style.transform = `translateZ(${
       side[0].offsetWidth / 2
-    }px) translateX(${backWidth / 2*(-1)}px) rotateY(90deg)`;
+    }px) translateX(${(backWidth / 2) * -1}px) rotateY(90deg)`;
   }
   /*
   side.forEach((element) => {
@@ -124,4 +124,4 @@ const observer = new ResizeObserver((entries) => {
   }
 });
 
-observer.observe(section2);
+observer.observe(section7);
