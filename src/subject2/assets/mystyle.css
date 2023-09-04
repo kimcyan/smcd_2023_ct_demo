@@ -1,6 +1,7 @@
 .mywrapper {
   padding: 0;
 }
+/* 1 표지 자침 */
 #section1 {
   background-color: #f5f5f7;
   background-image: url('./typo_1_main_title.jpg');
@@ -59,99 +60,73 @@
 .m-135 {
   transform: rotate(135deg);
 }
-
-#section2 {
-  background-color: #1d1d1f;
+/* 카드 뒤집기 */
+#section2, #section7 {
+  background-color: #4D4E51;
   aspect-ratio: 1440/769;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding-inline: 5rem;
   overflow: hidden;
+  align-items: center;
 }
-.container {
+.card-container {
   width: 25%;
   perspective: 1000px;
-}
-.cardbox-wrap {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transform: translateZ(-273px) rotateY(0deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: rotateAnimation 10s ease infinite forwards;
-}
-@keyframes rotateAnimation {
-  2% {
-    transform: translateZ(-273px) rotateY(0deg);
-  }
-  16% {
-    transform: translateZ(-273px) rotateY(-180deg);
-  }
-  86% {
-    transform: translateZ(-273px) rotateY(-180deg);
-  }
-  100% {
-    transform: translateZ(-273px) rotateY(0deg);
-  }
-}
-
-.cardbox {
-  animation: moveToBottom 10s ease infinite forwards;
-}
-@keyframes moveToBottom {
-  18% {
-    margin-top: 0;
-  }
-  32% {
-    margin-top: 500%;
-  }
-  70% {
-    margin-top: 500%;
-  }
-  84% {
-    margin-top: 0;
-  }
 }
 .spinImg,
 .flipImg {
   position: absolute;
 }
-.cardbox-back {
-  transform: translateZ(26px) rotateY(0deg);
-}
-.cardbox-side {
-  transform: translateZ(13px) rotateY(90deg);
-}
-.cardbox-front {
-  transform: translateZ(0) rotateY(180deg);
-}
 .flip-wrap {
-  width: 96%;
   height: auto;
-  margin-top: 2%;
   display: flex;
   align-items: center;
   justify-content: center;
   transform: rotateY(0deg);
   transform-style: preserve-3d;
-  animation: rotateCard 10s ease infinite forwards;
 }
-@keyframes rotateCard {
-  32% {
+#section7 .flip-wrap {
+  width: 96%;
+  margin-top: 2%;
+}
+#section2 .flip-wrap {
+  width: 90%;
+}
+#section2 .c1 .flip-wrap, #section2 .c3 .flip-wrap {
+  animation: rotateCard1 8s ease infinite forwards;
+}
+#section2 .c2 .flip-wrap, #section2 .c4 .flip-wrap {
+  transform: rotateY(180deg);
+  animation: rotateCard2 8s ease infinite forwards;
+}
+@keyframes rotateCard1 {
+  25% {
     transform: rotateY(0deg);
   }
-  42% {
+  50% {
     transform: rotateY(180deg);
   }
-  60% {
+  75% {
     transform: rotateY(180deg);
   }
-  70% {
-    transform: rotateY(0deg);
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes rotateCard2 {
+  25% {
+    transform: rotateY(180deg);
+  }
+  50% {
+    transform: rotateY(360deg);
+  }
+  75% {
+    transform: rotateY(360deg);
+  }
+  100% {
+    transform: rotateY(540deg);
   }
 }
 .card-front,
@@ -163,23 +138,6 @@
   transform: rotateY(180deg);
 }
 
-/*애니메이션 딜레이*/
-.c2 .cardbox-wrap,
-.c2 .flip-wrap,
-.c2 .cardbox {
-  animation-delay: 0.2s;
-}
-.c3 .cardbox-wrap,
-.c3 .flip-wrap,
-.c3 .cardbox {
-  animation-delay: 0.4s;
-}
-.c4 .cardbox-wrap,
-.c4 .flip-wrap,
-.c4 .cardbox {
-  animation-delay: 0.6s;
-}
-
 #section6 {
   position: relative;
   width: 100%;
@@ -188,96 +146,76 @@
   justify-content: flex-end;
   align-items: center;
 }
-.s6back {
-  position: absolute;
-  z-index: -1;
+/* 카드 박스 */
+.cardbox-back {
+  transform: translateZ(26px) rotateY(0deg);
 }
-.m-animation-wrap {
-  max-width: 50%;
-  padding: 10% 16% 10% 6%;
+.cardbox-side {
+  transform: translateZ(13px) rotateY(90deg);
+}
+.cardbox-front {
+  transform: translateZ(0) rotateY(180deg);
+}
+.cardbox-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-273px) rotateY(0deg);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.m-s6 {
-  position: absolute;
+.c1 .cardbox-wrap, .c3 .cardbox-wrap {
+  transform: translateZ(-273px) rotateY(-180deg);
+  animation: rotateAnimation1 8s ease infinite forwards;
 }
-.m-bg {
-  animation: opacityMBg 4s ease infinite;
+.c2 .cardbox-wrap, .c4 .cardbox-wrap {
+  animation: rotateAnimation2 8s ease infinite forwards;
 }
-.m-s6 .m-45 {
-  transform: rotate(0deg);
-  animation: rotateM45 4s ease infinite;
-}
-.m-s6 .m-90 {
-  transform: rotate(0deg);
-  animation: rotateM90 4s ease infinite;
-}
-.m-s6 .m-135 {
-  transform: rotate(0deg);
-  animation: rotateM135 4s ease infinite;
-}
-@keyframes rotateM45 {
-  20% {
-    transform: rotate(0deg);
-  }
-  30% {
-    transform: rotate(45deg);
-  }
-  70% {
-    transform: rotate(45deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-@keyframes rotateM90 {
-  0% {
-    transform: rotate(0deg);
-  }
-  20% {
-    transform: rotate(90deg);
-  }
-  70% {
-    transform: rotate(90deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-@keyframes rotateM135 {
-  0% {
-    transform: rotate(0deg);
-  }
-  20% {
-    transform: rotate(90deg);
-  }
-  30% {
-    transform: rotate(135deg);
-  }
-  70% {
-    transform: rotate(135deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-@keyframes opacityMBg {
-  0% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
+@keyframes rotateAnimation1 {
+  25% {
+    transform: translateZ(-273px) rotateY(-180deg);
   }
   50% {
-    opacity: 1;
+    transform: translateZ(-273px) rotateY(0deg);
   }
-  70% {
-    opacity: 1;
+  75% {
+    transform: translateZ(-273px) rotateY(0deg);
   }
   100% {
-    opacity: 0;
+    transform: translateZ(-273px) rotateY(180deg);
   }
+}
+@keyframes rotateAnimation2 {
+  25% {
+    transform: translateZ(-273px) rotateY(0deg);
+  }
+  50% {
+    transform: translateZ(-273px) rotateY(180deg);
+  }
+  75% {
+    transform: translateZ(-273px) rotateY(180deg);
+  }
+  100% {
+    transform: translateZ(-273px) rotateY(360deg);
+  }
+}
+/*애니메이션 딜레이
+.c2 .cardbox-wrap,
+.c2 .flip-wrap,
+.c2 .cardbox {
+  animation-delay: 0.2s;
+}*/
+.c3 .cardbox-wrap,
+.c3 .flip-wrap,
+.c3 .cardbox {
+  animation-delay: 0.4s !important;
+}
+.c4 .cardbox-wrap,
+.c4 .flip-wrap,
+.c4 .cardbox {
+  animation-delay: 0.4s !important;
 }
 /*효과 전용 class*/
 .invisible {
