@@ -125,3 +125,6 @@ const observer = new ResizeObserver((entries) => {
 });
 
 observer.observe(section7);
+
+$(document).ready(scaleSide);
+
