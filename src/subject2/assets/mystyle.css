@@ -63,14 +63,20 @@
 /* 카드 뒤집기 */
 #section2,
 #section7 {
-  background-color: #4d4e51;
-  aspect-ratio: 1440/769;
+  height: 70vw;
+    max-height: 1100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding-inline: 4vw;
   overflow: hidden;
   align-items: center;
+  background: rgb(115,117,132);
+    background: linear-gradient(180deg, rgba(115,117,132,1) 0%, rgba(170,172,185,1) 30%, rgba(170,172,185,1) 60%, rgba(29,29,31,1) 100%);
+}
+#section7 {
+  background: rgb(115,117,132);
+  background: linear-gradient(0deg, rgba(115,117,132,1) 0%, rgba(170,172,185,1) 30%, rgba(170,172,185,1) 60%, rgba(29,29,31,1) 100%);
 }
 .card-container {
   width: 25%;
@@ -212,10 +218,6 @@
 .c4 .flip-wrap,
 .c4 .cardbox {
   animation-delay: 0.4s !important;
-}
-.s7-img {
-  position: absolute;
-  padding-bottom: 40%;
 }
 #section6 {
   padding-inline: 4vw;

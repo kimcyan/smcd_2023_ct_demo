@@ -21,11 +21,4 @@ const reference = [
     sourceTitle: '',
     link: 'https://vimeo.com/118919656',
   },
-  {
-    author: 'GitHub, Inc.',
-    title: 'What is GitHub?',
-    year: '2022',
-    sourceTitle: '',
-    link: 'https://www.youtube.com/watch?v=pBy1zgt0XPc',
-  },
 ];
