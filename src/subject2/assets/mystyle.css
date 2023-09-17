@@ -64,19 +64,31 @@
 #section2,
 #section7 {
   height: 70vw;
-    max-height: 1100px;
+  max-height: 1100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding-inline: 4vw;
   overflow: hidden;
   align-items: center;
-  background: rgb(115,117,132);
-    background: linear-gradient(180deg, rgba(115,117,132,1) 0%, rgba(170,172,185,1) 30%, rgba(170,172,185,1) 60%, rgba(29,29,31,1) 100%);
+  background: rgb(115, 117, 132);
+  background: linear-gradient(
+    180deg,
+    rgba(115, 117, 132, 1) 0%,
+    rgba(170, 172, 185, 1) 30%,
+    rgba(170, 172, 185, 1) 60%,
+    rgba(29, 29, 31, 1) 100%
+  );
 }
 #section7 {
-  background: rgb(115,117,132);
-  background: linear-gradient(0deg, rgba(115,117,132,1) 0%, rgba(170,172,185,1) 30%, rgba(170,172,185,1) 60%, rgba(29,29,31,1) 100%);
+  background: rgb(115, 117, 132);
+  background: linear-gradient(
+    0deg,
+    rgba(115, 117, 132, 1) 0%,
+    rgba(170, 172, 185, 1) 30%,
+    rgba(170, 172, 185, 1) 60%,
+    rgba(29, 29, 31, 1) 100%
+  );
 }
 .card-container {
   width: 25%;
